@@ -1,10 +1,10 @@
 # CME Futures Trading Competition
 
 ## Libraries Used
-- *Numpy/Pandas*: For data processing, handling, and analysis
-- *Scipy/Sklearn*: For linear models and feature pruning
-- *ARCH*: For GARCH models
-- *yfinance/Pandas-Datareader*: For data download
+- *numpy/pandas*: For data processing, handling, and analysis
+- *scipy/sklearn*: For linear models and feature pruning
+- *arch*: For GARCH models
+- *yfinance/pandas-datareader*: For data download
 - *ploty*: For graphing information (preferred to matplotlib because it allows for hovering on info and zooming in natively)
 
 ## Methodology
