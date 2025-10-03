@@ -1,13 +1,13 @@
 # CME Futures Trading Competition
 
-## <u>Libraries Used</u>
+## Libraries Used
 - *Numpy/Pandas*: For data processing, handling, and analysis
 - *Scipy/Sklearn*: For linear models and feature pruning
 - *ARCH*: For GARCH models
 - *yfinance/Pandas-Datareader*: For data download
 - *ploty*: For graphing information (preferred to matplotlib because it allows for hovering on info and zooming in natively)
 
-## <u>Methodology</u>
+## Methodology
 - Bought continuous front month futures contract data for several tickers (Data from Kibot)
 - Cleaned, spliced, and processed data into a useable format
 - Developed various features for analysis including log prices, log volume, log returns, spreads, etc.
