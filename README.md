@@ -20,3 +20,7 @@
 - Tried numerous portfolio allocation techniques including continuous Kelly criterion / Merton portfolio optimization (extends from Markowitz portfolio optimization in the multi-asset case)
 - Adjusted drift in log returns for GBM adjustment (+ 1/2sigma^2 in the normal assumption)
 - Graphed various metrics and displayed performance on out of sample testing
+
+## Notes
+- I ran out of time before the start of the competition to really refine the model, and there were a couple issues with the features and other areas, but the backtests showed promising results regardless so we will see how it turns out in its current state
+- I tried to add several more contracts to hopefully increase diversification and trading opportunities. The base version I made learned to essentially trade spreads between certain futures, and I was thinking adding more contracts would improve this result. However, my drift modeling wasn't capable enough to add so many more contracts. The quality of forecast decreased significantly to a simple average return essentially with little sensitivity (if any) to changes in macro and other features. A more sophisticated model would likely yield better results with more contracts, but I wasn't able to obtain that result with the time I had.
