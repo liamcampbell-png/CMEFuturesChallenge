@@ -9,7 +9,7 @@
 
 ## Methodology
 - Bought continuous front month futures contract data for several tickers (Data from Kibot)
-- Cleaned, spliced, and processed data into a useable format
+- Cleaned, spliced, and processed data into a useable format (including data from fred and yahoo finance)
 - Developed various features for analysis including log prices, log volume, log returns, spreads, etc.
 - Split data into 80/20 train/test
 - Determined feature importance with random forest in a preprocessing step (reducing ~2400 features to ~600)
@@ -20,7 +20,10 @@
 - Tried numerous portfolio allocation techniques including continuous Kelly criterion / Merton portfolio optimization (extends from Markowitz portfolio optimization in the multi-asset case)
 - Adjusted drift in log returns for GBM adjustment (+ 1/2sigma^2 in the normal assumption)
 - Graphed various metrics and displayed performance on out of sample testing
+- Grid searched on hyperparameters in the test set (further confidence could have been gained by separating into a test set and validation set)
+- Final result was a two stage drift/diffusion model that gave target positions for next day trading session
 
 ## Notes
-- I ran out of time before the start of the competition to really refine the model, and there were a couple issues with the features and other areas, but the backtests showed promising results regardless so we will see how it turns out in its current state
-- I tried to add several more contracts to hopefully increase diversification and trading opportunities. The base version I made learned to essentially trade spreads between certain futures, and I was thinking adding more contracts would improve this result. However, my drift modeling wasn't capable enough to add so many more contracts. The quality of forecast decreased significantly to a simple average return essentially with little sensitivity (if any) to changes in macro and other features. A more sophisticated model would likely yield better results with more contracts, but I wasn't able to obtain that result with the time I had.
+- I ran out of time before the start of the competition to really refine the model, and there were a couple issues with the features and other areas, but the backtests showed promising results regardless so we will see how it turns out in its current state.
+- I tried to add several more contracts to hopefully increase diversification and trading opportunities. The base version I made learned to essentially trade spreads between certain futures, and I was thinking adding more contracts would improve this result. However, my drift modeling wasn't capable enough to add so many more contracts. The quality of forecast decreased significantly to a simple average return essentially with little sensitivity (if any) to changes in macro and other features. A more sophisticated model would likely yield better results with more contracts, but I wasn't able to obtain that result with the time I had.  Something interesting to note about this is the continuous Kelly criterion strategy for leverage that I implemented (using the result from Merton's application of Kelly on log GBM) provided what these spread strategies naturally at allocation based on the rolling correlation and predicted volatility, but didn't seem to actually maximize long term growth, rather it seems it maximized long term minimum variance growth. More analysis needs to be done here.
+- I think after significant refinement is made to robustify these predictions, potentially including swapping the drift model for a Kalman filter, a next step would be to target intraday mean reversion within this strategy or implementing intraday price targets based on our long term trend, allowing us to capture alpha within the short term trends as well.
