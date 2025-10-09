@@ -1,5 +1,13 @@
 # CME Futures Trading Competition
 
+## Overview
+The CME University Trading Challenge is an annual futures trading competition that allows students to paper trade on real time data for futures contracts on equities, forex, interest rates, commodities, metals, and agriculture. The challenge requires students to work within constraints of:
+- $1M total starting equity
+- $2.5 commission per contract side ($5.00 per trade)
+- $1000 penalty per contract and forfeiture of profits when holding a contract through expiration
+- $1000 penalty per day where at least 10 contracts were not traded
+- Account lockout for the rest of the trading day if a 20% loss was experienced
+
 ## Libraries Used
 - *numpy/pandas*: For data processing, handling, and analysis
 - *scipy/sklearn*: For linear models and feature pruning
